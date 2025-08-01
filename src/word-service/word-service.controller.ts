@@ -6,7 +6,7 @@ export class WordServiceController {
    constructor (private readonly wordService:WordServiceService) {}
 
     @Post()
-    getWordMeaning(@Body("word") word:string):Promise<string> {
+    getWordMeaning(@Body("word") word:string):Promise<unknown> {
         return this.wordService.defineWord(word);
     }
 }

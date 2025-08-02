@@ -18,13 +18,17 @@ export class WordServiceService {
   }
 
   async defineWord(word:string){
-    if (!word || word.length === 0) return "please enter a valid word";
-    console.log(word);
+    if (!word || word.length === 0) return {
+      message:"Please enter a valid word",
+      status:HttpStatus.BAD_REQUEST,
+      success:false
+    };
+    // console.log(word);
     
     
    try {
    const wordSort = await findMeaning(this.getPort(), word);
-   console.log(wordSort);
+  //  console.log(wordSort);
    
 
    if (wordSort?.success) {
@@ -75,8 +79,8 @@ export class WordServiceService {
   const page = Object.values(pages)[0] as any;
 
   // const foundVal = JSON.parse(wordSort.data.phonetic);
-  console.log(wordSort.info);
-  console.log("yes");
+  // console.log(wordSort.info);
+  // console.log("yes");
   
   return {
     image: page?.thumbnail?.source || null,

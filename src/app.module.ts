@@ -10,7 +10,7 @@ import { ConfigModule } from '@nestjs/config';
   imports: [WordServiceModule, DbModule, ConfigModule.forRoot({
     isGlobal:true,
     validationSchema:Joi.object({
-     WORDS_API:Joi.string().required(), 
+     WORDS_API:Joi.string(), 
     })
   })],
   controllers: [AppController],

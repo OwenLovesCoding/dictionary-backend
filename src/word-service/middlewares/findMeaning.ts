@@ -11,8 +11,8 @@ export const findMeaning =async (endpoint, word) => {
                         phonetic:res[0].phonetic,
                         partOfSpeech:res[0].meanings[0].partOfSpeech,
                         meanings:res[0].meanings[0].definitions[0].definition,
-                        synonyms:res[0].meanings[0].definitions[0].synonyms[0] ?? [""],
-                        antonyms:res[0].meanings[0].definitions[0].antonyms[0] ?? [""]
+                        synonyms:res[0].meanings[0].definitions[0].synonyms[0] ?? ["none"],
+                        antonyms:res[0].meanings[0].definitions[0].antonyms[0] ?? ["none"]
                     },
                     status:HttpStatus.FOUND,
                     message:"Found",

@@ -2,7 +2,7 @@ import { HttpStatus } from "@nestjs/common";
 
 export const findMeaning =async (endpoint, word) => {
       try {
-            const mainData = await fetch(`${endpoint}/${word}`);
+            const mainData = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
             if (mainData.ok) {
                 const res =await mainData.json();
                 return {

@@ -1,12 +1,20 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Post,
+} from '@nestjs/common';
 import { WordServiceService } from './word-service.service';
 
 @Controller('word-service')
 export class WordServiceController {
-   constructor (private readonly wordService:WordServiceService) {}
+  constructor(private readonly wordService: WordServiceService) {}
 
-    @Post()
-    getWordMeaning(@Body("word") word:string):Promise<unknown> {
-        return this.wordService.defineWord(word);
-    }
+  @Post('word')
+  @HttpCode(HttpStatus.CREATED)
+  getWordMeaning(@Body('word') word: string): Promise<unknown> {
+    return this.wordService.defineWord(word);
+  }
 }
